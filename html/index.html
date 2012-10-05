@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Torture or Interrogation?</title>
+		<link rel="stylesheet" type="text/css" href="jqcloud.danny.css" />
+		<!-- jquery is currently at version 1.8.2 -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="jqcloud-1.0.1.min.js"></script>
+		<script type="text/javascript" src="torture-terms-dataset.js"></script>
+		<script type="text/javascript"> 
+			
+			$(function() {
+				$("#wordcloud").jQCloud(Default_terms);
+				
+				// Fox News
+				$("#news-outlets-menu .Fox").hover(function () {
+						$("#wordcloud *").remove();
+						$("#wordcloud").jQCloud(Fox_terms);
+					}, 
+					function () {
+						$("#wordcloud *").remove();
+						$("#wordcloud").jQCloud(Default_terms);
+					});
+					
+				// Associated Press	
+				$("#news-outlets-menu .AP").hover(function () {
+						$("#wordcloud *").remove();
+						$("#wordcloud").jQCloud(AP_terms);
+					}, 
+					function () {
+						$("#wordcloud *").remove();
+						$("#wordcloud").jQCloud(Default_terms);
+					});
+			});
+		</script>
+		
+		<style type="text/css">
+		
+		body {
+			font-family: "News Gothic MT", "Franklin Gothic Medium", sans-serif;
+			font-size: 14pt;
+		}
+		
+		#page-title { text-align: center; font-weight: bold; }
+
+		#news-outlets-menu { margin: 30px auto; width: 500px; height: 30px; }
+		
+		#news-outlets-menu #news-outlets { margin: 0px auto; }
+		
+		#news-outlets-menu li {	
+			float: left;
+			list-style-type: none;
+			padding: 3px 10px;
+			margin: 0px 5px;
+			background-color: #444;
+			color: #efefef;
+		}
+		
+		#news-outlets-menu li.menu-label,
+		#news-outlets-menu li.menu-label:hover {
+ 			cursor: auto;
+			text-transform: uppercase;
+			color: #333;
+			background-color: #fff;
+		}
+		
+		#news-outlets-menu li:hover {
+			cursor: pointer;
+			background-color: #eee;
+			color: #333;
+		}
+		
+		#wordcloud { 
+			margin: 0px auto; 
+			width: 900px;
+			height: 500px;
+			border: 2px dashed #eee;
+		}
+		
+		</style>
+		
+	</head>
+	<body>
+	
+	<h1 id="page-title">Torture or Interrogation?</h1>
+	
+    <div id="wordcloud"></div>
+	
+			<div id="news-outlets-menu"> 
+			<ul id="news-outlets">
+				<li class="menu-label">Outlets</li>
+				<li class="Fox">Fox News</li>
+				<li class="AP">Associated Press</li>
+			</ul>		
+		</div>
+	</body>
+</html>
