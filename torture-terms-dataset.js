@@ -9,6 +9,8 @@
 				{text: "strong interrogation", weight: 1},
 				{text: "tough interrogation", weight: 1},
 				{text: "rough interrogation", weight: 1},
+				{text: "intense interrogation", weight: 1},
+				{text: "extensive interrogation", weight: 1},				
 				{text: "harsh questioning", weight: 1},
 				{text: "abuse", weight: 1},
 				{text: " ", weight: 10}
@@ -24,6 +26,8 @@
 				{text: "strong interrogation", weight: 2},
 				{text: "tough interrogation", weight: 1},
 				{text: "rough interrogation", weight: 1},
+				{text: "intense interrogation", weight: 1},
+				{text: "extensive interrogation", weight: 1},
 				{text: "harsh questioning", weight: 1}
 			];
 
