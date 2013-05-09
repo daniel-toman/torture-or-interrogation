@@ -48,7 +48,8 @@
 				{text: "harsh questioning", weight: 2}
 			];
 			
-			$(function() {
+			$(document).ready(function() {
+				$("#wordcloud *").remove();
 				$("#wordcloud").jQCloud(Default_terms);
 				
 				// Fox News
@@ -184,7 +185,7 @@
 		</style>
 	</head>
 	<body>
-		<div id="wordcloud"></div>
+		<div id="wordcloud"><img src="wordcloud-preview.png"/></div>
 	
 		<div id="news-outlets-menu"> 
 			<ul id="news-outlets">
