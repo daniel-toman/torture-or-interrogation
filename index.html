@@ -2,10 +2,51 @@
 <html>
 	<head>
 		<title>Torture or Interrogation?</title>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script type="text/javascript" src="https://raw.github.com/lucaong/jQCloud/master/jqcloud/jqcloud-1.0.1.min.js"></script>
-		<script type="text/javascript" src="torture-terms-dataset.js"></script>
-		<script type="text/javascript"> 
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="//raw.github.com/lucaong/jQCloud/master/jqcloud/jqcloud-1.0.3.min.js"></script>
+		<script type="text/javascript">
+		
+		// Torture term frequency by outlet
+
+			var Default_terms = [
+				{text: "torture", weight: 5},
+				{text: "enhanced interrogation", weight: 4},
+				{text: "interrogation", weight: 1},
+				{text: "coerced interrogation", weight: 1},
+				{text: "harsh interrogation", weight: 1},
+				{text: "strong interrogation", weight: 1},
+				{text: "tough interrogation", weight: 1},
+				{text: "rough interrogation", weight: 1},
+				{text: "intense interrogation", weight: 1},
+				{text: "extensive interrogation", weight: 1},				
+				{text: "harsh questioning", weight: 1},
+				{text: "abuse", weight: 1},
+				{text: " ", weight: 10}
+			];
+
+			var Fox_terms = [
+				{text: "torture", weight: 107},
+				{text: "enhanced interrogation", weight: 139},
+				{text: "interrogation", weight: 113},
+				{text: "coerced interrogation", weight: 26},
+				{text: "abuse", weight: 10},
+				{text: "harsh interrogation", weight: 8},
+				{text: "strong interrogation", weight: 2},
+				{text: "tough interrogation", weight: 1},
+				{text: "rough interrogation", weight: 1},
+				{text: "intense interrogation", weight: 1},
+				{text: "extensive interrogation", weight: 1},
+				{text: "harsh questioning", weight: 1}
+			];
+
+			var AP_terms = [
+				{text: "torture", weight: 106},
+				{text: "enhanced interrogation", weight: 5},
+				{text: "interrogation", weight: 13},
+				{text: "harsh interrogation", weight: 6},
+				{text: "abuse", weight: 6},
+				{text: "harsh questioning", weight: 2}
+			];
 			
 			$(function() {
 				$("#wordcloud").jQCloud(Default_terms);
@@ -32,7 +73,6 @@
 			});
 		</script>
 		
-		<link rel="stylesheet" type="text/css" href="jqcloud.torture.css" />
 		<style type="text/css">
 		
 		body {
@@ -71,20 +111,65 @@
 		
 		#wordcloud { 
 			margin: 0px auto; 
-			width: 960px;
+			width: 950px;
 			height: 420px;
-			border: 2px dashed #eee;
 		}
 		
-		</style>
+		/* fonts */
 		
+		div.jqcloud {
+			font-family: "News Gothic MT", "Franklin Gothic Medium", sans-serif;
+			font-size: 10pt;
+			line-height: normal;
+		}
+		
+		div.jqcloud a {
+			font-size: inherit;
+			text-decoration: none;
+		}
+		
+		div.jqcloud span.w10 { font-size: 550%; font-weight: bold; }
+		div.jqcloud span.w9 { font-size: 500%; }
+		div.jqcloud span.w8 { font-size: 450%; }
+		div.jqcloud span.w7 { font-size: 400%; }
+		div.jqcloud span.w6 { font-size: 350%; }
+		div.jqcloud span.w5 { font-size: 300%; }
+		div.jqcloud span.w4 { font-size: 250%; }
+		div.jqcloud span.w3 { font-size: 200%; }
+		div.jqcloud span.w2 { font-size: 150%; }
+		div.jqcloud span.w1 { font-size: 100%; }
+		
+		/* colors */
+		
+		div.jqcloud { color: #09f; }
+		div.jqcloud a { color: inherit; }
+		div.jqcloud a:hover { color: #0df; }
+		div.jqcloud a:hover { color: #0cf; }
+		div.jqcloud span.w10 { color: #000; }
+		div.jqcloud span.w9 { color: #222; }
+		div.jqcloud span.w8 { color: #222; }
+		div.jqcloud span.w7 { color: #333; }
+		div.jqcloud span.w6 { color: #444; }
+		div.jqcloud span.w5 { color: #555; }
+		div.jqcloud span.w4 { color: #666; }
+		div.jqcloud span.w3 { color: #777; }
+		div.jqcloud span.w2 { color: #999; }
+		div.jqcloud span.w1 { color: #bbb; }
+		
+		/* layout */
+		
+		div.jqcloud {
+			overflow: hidden;
+			position: relative;
+		}
+		
+		div.jqcloud span { padding: 0; }
+		
+		</style>
 	</head>
 	<body>
-	
-		<h1 id="page-title">Torture or Interrogation?</h1>
-		
 		<div id="wordcloud"></div>
-		
+	
 		<div id="news-outlets-menu"> 
 			<ul id="news-outlets">
 				<li class="menu-label">Outlets</li>
